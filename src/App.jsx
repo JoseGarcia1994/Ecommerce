@@ -6,7 +6,6 @@ import Purchases from "./pages/Purchases"
 import Login from "./pages/Login"
 import ProductDetail from "./pages/ProductDetail"
 import Loader from './components/Loader'
-import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Container from 'react-bootstrap/Container';
 import ProtectedRoutes from './components/ProtectedRoutes'

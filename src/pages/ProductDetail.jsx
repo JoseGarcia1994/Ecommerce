@@ -6,9 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
-import Image from 'react-bootstrap/Image';
 import { useDispatch, useSelector } from "react-redux";
-import { filterCategoryThunk } from "../store/slices/Product.slice";
+import { filterCategoryThunk } from "../store/slices/product.slice";
 import { Link } from 'react-router-dom';
 
 

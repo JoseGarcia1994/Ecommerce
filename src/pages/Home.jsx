@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { useSelector, useDispatch } from 'react-redux';
-import { getProductsThunk, filterCategoryThunk, searchCategoryThunk } from '../store/slices/Product.slice';
+import { getProductsThunk, filterCategoryThunk, searchCategoryThunk } from '../store/slices/product.slice';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
