@@ -26,3 +26,49 @@ export const getCartThunk = () => dispatch => {
         .catch( error => console.error(error))
         .finally( () => dispatch( setIsLoading(false) ) )
 }
+
+export const addCartThunk = data => dispatch => {
+    dispatch( setIsLoading( true) )
+
+    axios
+        .post(`https://e-commerce-api-v2.academlo.tech/api/v1/cart`, data, getConfig())
+        .then( () => dispatch( getCartThunk() ))
+        .catch( error => console.error(error))
+        .finally( () => dispatch( setIsLoading(false) ) )
+}
+
+export const cartUpdateThunk = (id, qty) => dispatch => {
+    dispatch( setIsLoading( true) )
+
+    const body = {
+        quantity : qty
+    }
+
+    axios
+        .put(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${id}`, body, getConfig())
+        .then( () => dispatch( getCartThunk() ))
+        .catch( error => console.error(error))
+        .finally( () => dispatch( setIsLoading(false) ) )
+}
+
+ // Purchase what we have on the shopping cart
+export const purchaseCartThunk = () => dispatch => {
+    dispatch( setIsLoading( true) )
+
+    axios
+        .post( `https://e-commerce-api-v2.academlo.tech/api/v1/purchases`, {}, getConfig() )
+        .then( () => dispatch( getCartThunk() ))
+        .catch( error => console.error(error))
+        .finally( () => dispatch( setIsLoading(false) ) )
+}
+
+// delete products from cart
+export const deleteProductsThunk = id => dispatch => {
+    dispatch( setIsLoading( true) )
+
+    axios
+        .delete(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${id}`, getConfig())
+        .then( () => dispatch( getCartThunk() ))
+        .catch( error => console.error(error))
+        .finally( () => dispatch( setIsLoading(false) ) )
+}

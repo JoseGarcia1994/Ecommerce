@@ -1,12 +1,12 @@
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useForm } from "react-hook-form"
 import axios from 'axios';
-import {setIsLoading} from "../store/slices/isLoading.slice"
+import { setIsLoading } from "../store/slices/isLoading.slice"
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
 
@@ -15,35 +15,49 @@ const Login = () => {
 	const navigate = useNavigate()
 
 	const submit = data => {
-		dispatch( setIsLoading( true ))
+		dispatch(setIsLoading(true))
 		axios
-				.post(`https://e-commerce-api-v2.academlo.tech/api/v1/users/login`, data )
-				.then( resp => {
-					console.log(resp.data)
-					localStorage.setItem( "token", resp.data.token )
-					navigate("/")
-				})
-				.catch( error => { 
-					if (error.response.staus === 401) {
-						alert("wrong credentials")
-					}
-					console.error(error)
-				})
-				.finally( () => dispatch( setIsLoading(false)))
+			.post(`https://e-commerce-api-v2.academlo.tech/api/v1/users/login`, data)
+			.then(resp => {
+				localStorage.setItem("token", resp.data.token)
+				navigate("/")
+			})
+			.catch(error => {
+				if (error.response.staus === 401) {
+					alert("wrong credentials")
+				}
+				console.error(error)
+			})
+			.finally(() => dispatch(setIsLoading(false)))
+	}
+
+	const logout = () => {
+		localStorage.clear()
+		navigate("/login")
 	}
 	return (
 		<div className='py-5 mt-5 d-flex justify-content-center align-center'>
-			<Form onSubmit={handleSubmit(submit)} className='p-3 px-5' style={{ border: "1px solid black" }}>
+			
+			{
+				localStorage.getItem("token") ? 
+				<div className='logout-container'>
+					<div className='logout-info'>
+						<h1>Log out</h1>
+						<h2>Hope to see you soon!</h2>
+					</div>
+					<Button  type="submit" variant='dark' onClick={() => logout()}>Log out</Button>
+				</div> : 
+				<Form onSubmit={handleSubmit(submit)} className='p-3 px-5 login-container'>
 				<h1 className='text-center'>Log in</h1>
-				
+
 				<Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
 					<Form.Label>
 						Email
 					</Form.Label>
 					<Form.Control
-					type="email"
-					placeholder="Email"
-					{...register("email")}
+						type="email"
+						placeholder="Email"
+						{...register("email")}
 					/>
 				</Form.Group>
 
@@ -51,19 +65,23 @@ const Login = () => {
 					<Form.Label>
 						Password
 					</Form.Label>
-						<Form.Control
-							type="password"
-							placeholder="Password"
-							{...register("password")}
-						/>
+					<Form.Control
+						type="password"
+						placeholder="Password"
+						{...register("password")}
+					/>
 				</Form.Group>
 
-				<Form.Group as={Row} className="mb-3">
-					<Col sm={{ span: 10, offset: 2 }}>
-						<Button type="submit">Log in</Button>
-					</Col>
+				<Form.Group as={Row} className="mb-3 login-btn-container">
+
+					<Button type="submit" variant='dark' className='login-btn'>Log in</Button>
+
 				</Form.Group>
 			</Form>
+			}
+			
+
+			
 		</div>
 	);
 };

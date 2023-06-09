@@ -28,8 +28,6 @@ const Home = () => {
 			.catch(error => console.error(error))
 	}, [])
 
-
-
 	return (
 		<div>
 			<Row className='pt-5'>
@@ -52,7 +50,7 @@ const Home = () => {
 				</Col>
 
 				<Col md={8} lg={9}>
-					<InputGroup className="mb-3">
+					<InputGroup className="my-3">
 						<Form.Control
 							placeholder="Search by name"
 							aria-label="Search by name"
@@ -61,34 +59,36 @@ const Home = () => {
 							onChange={e => setSearchValue(e.target.value)}
 						/>
 						<Button
-							variant="outline-secondary"
+							variant="dark"
 							id="button-addon2"
 							onClick={() => dispatch(searchCategoryThunk(searchValue))}
 						>
 							Search
 						</Button>
 					</InputGroup>
-					<Row xs={1} md={2} lg={3} className='mt-5'>
+					<Row xs={1} sm={2} md={2} lg={3} xl={4} className='mt-5'>
 						{
 							productList.map(product => (
 								<Col className='mb-3' key={product.id}>
-									<Card className='w-100' style={{ height : "380px" }}>
+									<Card className='w-100' style={{ height: "400px" }}>
 										<Card.Img variant="top" src={product.images?.[0].url} style={{ height: 200 }} />
 										<Card.Body>
-											<Card.Title>{product.title}</Card.Title>
-											<Card.Text>
-												Price: {product.price}
-											</Card.Text>
-											<div className='w-100 d-flex'>
-											<Button
-												variant="primary"
-												as={Link}
-												to={`/product/${product.id}`}
-											>
-												<i className='bx bx-cart bx-xs'></i>
-											</Button>
+											<div className='card-title-price'>
+												<h2 className='card-title'>{product.title}</h2>
+												<Card.Text>
+													<strong>Price:</strong>  ${product.price}
+												</Card.Text>
 											</div>
-											
+											<div className='w-100 d-flex'>
+												<Button
+													variant="dark"
+													as={Link}
+													to={`/product/${product.id}`}
+												>
+													View details
+												</Button>
+											</div>
+
 										</Card.Body>
 									</Card>
 								</Col>
@@ -97,8 +97,8 @@ const Home = () => {
 
 					</Row>
 				</Col>
+
 			</Row>
-			<h1>Home</h1>
 
 		</div>
 	);
