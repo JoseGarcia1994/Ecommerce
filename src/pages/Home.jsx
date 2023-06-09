@@ -71,7 +71,7 @@ const Home = () => {
 							productList.map(product => (
 								<Col className='mb-3' key={product.id}>
 									<Card className='w-100' style={{ height: "400px" }}>
-										<Card.Img variant="top" src={product.images?.[0].url} style={{ height: 200 }} />
+										<Card.Img variant="top" src={product.images?.[0].url} style={{ height: 200 }} className='home-card-img' />
 										<Card.Body>
 											<div className='card-title-price'>
 												<h2 className='card-title'>{product.title}</h2>

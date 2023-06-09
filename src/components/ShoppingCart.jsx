@@ -5,6 +5,7 @@ import { getCartThunk, cartUpdateThunk, deleteProductsThunk } from '../store/sli
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import PurchaseConfirmation from './PurchaseConfirmation';
+import Button from 'react-bootstrap/Button';
 
 
 const ShoppingCart = ({ show, handleClose }) => {
@@ -12,8 +13,8 @@ const ShoppingCart = ({ show, handleClose }) => {
 	const dispatch = useDispatch()
 	const cart = useSelector(state => state.cart)
 	const [showPurchaseConfirmation, setShowPurchaseConfirmation] = useState(false);
-  const closePurchaseConfirmation = () => setShowPurchaseConfirmation(false);
-  const shoowPurchaseConfirmation = () => setShowPurchaseConfirmation(true);
+  	const closePurchaseConfirmation = () => setShowPurchaseConfirmation(false);
+  	const shoowPurchaseConfirmation = () => setShowPurchaseConfirmation(true);
 	
 
 
@@ -78,8 +79,9 @@ const ShoppingCart = ({ show, handleClose }) => {
 							))
 						}
 					</ul>
-
-					<button onClick={ () => shoowPurchaseConfirmation() }>Buy</button>
+					{
+						cart.length === 1 ?  <Button onClick={ () => shoowPurchaseConfirmation() } variant="dark">Buy</Button> : null 
+					}
 				</Offcanvas.Body>
 			</Offcanvas>
 			

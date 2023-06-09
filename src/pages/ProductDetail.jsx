@@ -58,7 +58,7 @@ const ProductDetail = () => {
 			<h1 className="mx-5">{product.title}</h1>
 
 			<Row className="pt-5 mb-5">
-				<Col lg={7}>
+				<Col md={6} lg={7}>
 					<Carousel className="w-60 ms-auto me-auto mt-4" variant="dark" >
 						<Carousel.Item>
 							<img
@@ -89,7 +89,7 @@ const ProductDetail = () => {
 					</Carousel>
 				</Col>
 
-				<Col lg={5} className="ps-5 pe-5">
+				<Col md={6} lg={5} className="ps-5 pe-5">
 					<p className="mt-3">{product.brand}</p>
 					<p className="fs-">{product.description}</p>
 
@@ -139,7 +139,7 @@ const ProductDetail = () => {
 					productsFiltered.map( product => (
 						<Col className='mb-3 card-col' key={product.id}>
 							<Card className='w-100' style={{ height: "400px" }}>
-								<Card.Img variant="top" src={product.images?.[0].url} style={{ height: 200 }} />
+								<Card.Img variant="top" src={product.images?.[0].url} style={{ height: 200 }} className='home-card-img'/>
 								<Card.Body>
 									<div className='card-title-price'>
 										<h2 className='card-title'>{product.title}</h2>

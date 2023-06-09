@@ -33,7 +33,6 @@
     bottom: -50px !important;
 }
 
-
 /* =============================== HOME =============================== */
 
 .card {
@@ -74,6 +73,11 @@
     justify-content: flex-end !important;
 }
 
+.home-card-img:hover {
+    -webkit-transform: scaleX(-1) !important;
+    transform: scaleX(-1) !important;
+}
+
 /* =============================== CART =============================== */
 
 .cart-container {
@@ -107,6 +111,12 @@
 
 /* =============================== PURCHASES =============================== */
 
+.purchase-history {
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(206, 188, 163);
+}
+
 .purchase-date-price {
     border-bottom: 1px solid lightgray;
     background-color: rgb(240, 242, 245);
@@ -131,6 +141,16 @@
 .purchase-title h1 {
     font-size: 1rem;
     padding-top: 10px;
+}
+
+.purchase-qty-title {
+    margin-bottom: 0;
+}
+
+.purchase-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 /* =============================== LOGIN =============================== */
