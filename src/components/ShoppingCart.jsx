@@ -15,8 +15,6 @@ const ShoppingCart = ({ show, handleClose }) => {
 	const [showPurchaseConfirmation, setShowPurchaseConfirmation] = useState(false);
   	const closePurchaseConfirmation = () => setShowPurchaseConfirmation(false);
   	const shoowPurchaseConfirmation = () => setShowPurchaseConfirmation(true);
-	
-
 
 	useEffect(() => {
 		dispatch(getCartThunk())

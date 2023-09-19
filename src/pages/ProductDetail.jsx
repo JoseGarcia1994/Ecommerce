@@ -50,7 +50,6 @@ const ProductDetail = () => {
 		} else {
 			navigate("/login")
 		}
-
 	}
 
 	return (
@@ -152,6 +151,7 @@ const ProductDetail = () => {
 											variant="dark"
 											as={Link}
 											to={`/product/${product.id}`}
+											onClick={ () => setProduct(product) }
 										>
 											View details
 										</Button>

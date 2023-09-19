@@ -7,7 +7,6 @@ import { setIsLoading } from "../store/slices/isLoading.slice"
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-
 const Login = () => {
 
 	const { register, handleSubmit } = useForm()
@@ -49,6 +48,12 @@ const Login = () => {
 				</div> : 
 				<Form onSubmit={handleSubmit(submit)} className='p-3 px-5 login-container'>
 				<h1 className='text-center'>Log in</h1>
+
+				<div className='log__in-credentials'>
+					<h2 className='log__in-title'>Testing</h2>
+					<p className='log__in-email'>email: <span>john@gmail.com</span></p>
+					<p className='log__in-password'>password: <span>john1234</span></p>
+				</div>
 
 				<Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
 					<Form.Label>

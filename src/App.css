@@ -186,3 +186,24 @@
     flex-direction: column;
     align-items: center;
 }
+
+.log__in-credentials {
+    background-color: rgb(185, 41, 41);
+    color: #f0ffff;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.log__in-title {
+    padding-top: 5px;
+    margin-bottom: 0;
+}
+
+.log__in-email {
+    margin-bottom: 0;
+}
+
+.log__in-password {
+    margin-bottom: 0;
+    padding-bottom: 5px;
+}
