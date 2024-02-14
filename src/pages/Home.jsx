@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 
 const Home = () => {
 	const dispatch = useDispatch()
-	const productList = useSelector(state => state.products)
+	const productList = useSelector(state => state.products.products)
 
 	useEffect(() => {
 		dispatch(getProductsThunk())
