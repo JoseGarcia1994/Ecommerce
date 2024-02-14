@@ -22,36 +22,17 @@ function App() {
       <AppNavbar />
       <Container fluid>
         <Routes>
+          
+          <Route element={<Home />} path="/" />
+          <Route element={<Login />} path="/login" />
+          <Route element={<ProductDetail />} path="/product/:id" />
 
-          <Route
-            element={<Home />}
-            path="/"
-          />
-
-          <Route
-            element={<Login />}
-            path="/login"
-          />
-
-          <Route
-            element={<ProductDetail />}
-            path="/product/:id"
-          />
-
-          <Route
-          element={ <ProtectedRoutes /> }
-          >
-            <Route
-            element={<Purchases />}
-            path="/purchases"
-            />
-
+          <Route element={ <ProtectedRoutes /> } >
+            <Route element={<Purchases />} path="/purchases" />
           </Route>
           
-
         </Routes>
       </Container>
-
     </HashRouter>
   )
 }
